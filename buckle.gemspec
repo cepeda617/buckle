@@ -7,8 +7,8 @@ require "buckle/version"
 Gem::Specification.new do |s|
   s.name        = "buckle"
   s.version     = Buckle::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
+  s.authors     = ["Peter Cepeda"]
+  s.email       = ["pcepeda@pubget.com"]
   s.homepage    = "TODO"
   s.summary     = "TODO: Summary of Buckle."
   s.description = "TODO: Description of Buckle."
@@ -17,7 +17,11 @@ Gem::Specification.new do |s|
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency "rails", "~> 3.2.12"
-  # s.add_dependency "jquery-rails"
+  s.add_dependency "jquery-rails"
+  s.add_dependency 'bootstrap-sass', '~> 3.0.2.0'
+
+  s.add_development_dependency 'sass-rails', '>= 3.2'
+  s.add_development_dependency 'slim-rails'
 
   s.add_development_dependency "sqlite3"
 end
