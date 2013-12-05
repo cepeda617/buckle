@@ -1,8 +1,43 @@
+<div class="page-header">
+  <h1>Typography</h1>
+</div>
+
 <h2>Blockquotes</h2>
-<p>For quoting blocks of content from another source within your document.</p>
-<h3>Default blockquote</h3>
-<p>Wrap <code>&lt;blockquote&gt;</code> around any <abbr title="HyperText Markup Language">HTML</abbr> as the quote. For straight quotes, we recommend a <code>&lt;p&gt;</code>.</p>
+<p>Use <code>blockquote_tag</code> for quoting blocks of content from another source within your document.</p>
+
 <%= panel_tag do %>
   <%= panel_body blockquote_tag('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.', cite: 'Someone famous in Source Title') %>
   <%= panel_footer code_tag("<%= blockquote_tag 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.', cite: 'Someone famous in Source Title' %\>", :erb) %>
+<% end %>
+
+<h4>Alternative display</h4>
+<p>Add <code>.pull-right</code> for a floated, right-aligned blockquote.</p>
+
+<%= panel_tag do %>
+  <%= panel_body blockquote_tag('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.', cite: 'Someone famous in Source Title', class: 'pull-right') %>
+  <%= panel_footer code_tag("\<%= blockquote_tag 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.', cite: 'Someone famous in Source Title' %\>", :erb) %>
+<% end %>
+
+<div class="page-header">
+  <h1>Code</h1>
+</div>
+
+<h2>Basic block</h2>
+<p>Use <code>code_tag</code> to wrap and highlight lines of code. Be sure to escape any angle brackets in the code for proper rendering.</p>
+
+<%= panel_tag code_tag('<p>Sample text here...</p>'), footer: code_tag("\<%= code_tag '<p>Sample text here...</p>' %\>", :erb) %>
+
+<p>Set the syntax with an additional argument. You can also use Coderay options explained here: <%= link_to nil, 'http://coderay.rubychan.de/doc/CodeRay/Encoders/HTML.html' %></p>
+
+<%= panel_tag do %>
+  <%= panel_body do %>
+    <%= code_tag :html do %>
+<h2>Basic block</h2>
+<p>Use <code>code_tag</code> to wrap and highlight lines of code.</p>
+    <% end %>
+  <% end %>
+
+  <%= panel_footer do %>
+    <%= code_tag "\<%= code_tag :html %\>\n  <h2>Basic block</h2>\n  <p>Use <code>code_tag</code> to wrap and highlight lines of code.</p>\n \<% end %\>", :erb %>
+  <% end %>
 <% end %>

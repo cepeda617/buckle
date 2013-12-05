@@ -8,7 +8,9 @@
 </head>
 <body>
 
-<%= content_for?(:content) ? yield(:content) : yield %>
+  <div class="container">
+    <%= content_for?(:content) ? yield(:content) : yield %>
+  </div>
 
 </body>
 </html>
