@@ -1,3 +1,7 @@
+<h2>Blockquotes</h2>
+<p>For quoting blocks of content from another source within your document.</p>
+<h3>Default blockquote</h3>
+<p>Wrap <code>&lt;blockquote&gt;</code> around any <abbr title="HyperText Markup Language">HTML</abbr> as the quote. For straight quotes, we recommend a <code>&lt;p&gt;</code>.</p>
 <%= panel_tag do %>
   <%= panel_body blockquote_tag('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.', cite: 'Someone famous in Source Title') %>
   <%= panel_footer code_tag("<%= blockquote_tag 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.', cite: 'Someone famous in Source Title' %\>", :erb) %>
