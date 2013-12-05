@@ -1,4 +1,5 @@
 require 'bootstrap-sass'
+require 'coderay'
 
 module Buckle
   class Engine < ::Rails::Engine

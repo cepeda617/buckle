@@ -1,4 +1,4 @@
 <%= panel_tag do %>
   <%= panel_body blockquote_tag('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.', cite: 'Someone famous in Source Title') %>
-  <%= panel_footer "\<\%= blockquote_tag 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.', cite: 'Someone famous in Source Title' \%\>" %>
+  <%= panel_footer code_tag("<%= blockquote_tag 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.', cite: 'Someone famous in Source Title' %\>", :erb) %>
 <% end %>

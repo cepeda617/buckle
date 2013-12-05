@@ -19,9 +19,8 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", "~> 3.2.12"
   s.add_dependency "jquery-rails"
   s.add_dependency 'bootstrap-sass', '~> 3.0.2.0'
+  s.add_dependency 'coderay'
 
   s.add_development_dependency 'sass-rails', '>= 3.2'
-  s.add_development_dependency 'slim-rails'
-
   s.add_development_dependency "sqlite3"
 end

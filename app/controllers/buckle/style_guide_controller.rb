@@ -4,6 +4,7 @@ module Buckle
   class StyleGuideController < ApplicationController
 
     helper BlockquoteHelper
+    helper CodeHelper
     helper PanelHelper
 
     def index
