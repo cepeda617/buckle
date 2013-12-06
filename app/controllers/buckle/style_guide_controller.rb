@@ -1,16 +1,18 @@
-require_dependency "buckle/application_controller"
-
 module Buckle
   class StyleGuideController < ApplicationController
 
-    helper BlockquoteHelper
-    helper CodeHelper
-    helper PanelHelper
+    before_filter :style_guide
 
     def index
     end
 
     def css
+    end
+
+    private
+
+    def style_guide
+      @style_guide = StyleGuide.new
     end
 
   end
