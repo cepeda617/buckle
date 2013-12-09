@@ -86,9 +86,8 @@
   <% end %>
   <%= panel_footer do %>
 
-    <%= code_tag "@style_guide.people_for_table = [['Mark', 'Otto', '@mdo'], ['Jacob', 'Thorton', '@fat'], ['Larry', 'Thebird', '@twitter']]", :ruby %>
     <%= code_tag :erb do %>
-<%%= table_for @style_guide.people_for_table do |t|
+<%%= table_for @people do |t|
   t.header :id
   t.header :first_name
   t.header :last_name
@@ -101,7 +100,7 @@
     row.username person[2]
   end
 
-  t.footer :people_count, "Number of people: #{ @style_guide.people_for_table.count }"
+  t.footer :people_count, "Number of people: #{ @people }"
 end %>
     <% end %>
 
@@ -140,7 +139,7 @@ end %>
   <%= panel_footer do %>
 
     <%= code_tag :erb do %>
-<%%= table_for @style_guide.people_for_table, :striped do |t|
+<%%= table_for @people, :striped do |t|
   # ...
 end %>
     <% end %>
@@ -174,7 +173,7 @@ end %>
   <%= panel_footer do %>
 
     <%= code_tag :erb do %>
-<%%= table_for @style_guide.people_for_table, :bordered do |t|
+<%%= table_for @people, :bordered do |t|
   # ...
 end %>
     <% end %>
@@ -208,7 +207,7 @@ end %>
   <%= panel_footer do %>
 
     <%= code_tag :erb do %>
-<%%= table_for @style_guide.people_for_table, :hover do |t|
+<%%= table_for @people, :hover do |t|
   # ...
 end %>
     <% end %>
@@ -242,7 +241,7 @@ end %>
   <%= panel_footer do %>
 
     <%= code_tag :erb do %>
-<%%= table_for @style_guide.people_for_table, :condensed do |t|
+<%%= table_for @people, :condensed do |t|
   # ...
 end %>
     <% end %>
@@ -287,7 +286,7 @@ end %>
   <%= panel_footer do %>
 
     <%= code_tag :erb do %>
-<%%= table_for @style_guide.people_for_table do |t|
+<%%= table_for @people do |t|
   # ...
   t.rows.each do |row, person, index|
     row[:class] = :success
