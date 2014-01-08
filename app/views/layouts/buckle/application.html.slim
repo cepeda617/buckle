@@ -1,0 +1,10 @@
+doctype
+html
+  head
+    title Buckle
+    = stylesheet_link_tag "buckle/application", media: "all"
+    = javascript_include_tag "buckle/application"
+    = csrf_meta_tags
+  body
+    .container
+      = content_for?(:content) ? yield(:content) : yield

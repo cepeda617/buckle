@@ -1,7 +1,7 @@
 module Buckle
   class StyleGuideController < ApplicationController
 
-    before_filter :style_guide
+    before_filter :set_style_guide
 
     def index
     end
@@ -9,9 +9,12 @@ module Buckle
     def css
     end
 
+    def components
+    end
+
     private
 
-    def style_guide
+    def set_style_guide
       @style_guide = StyleGuide.new
     end
 
