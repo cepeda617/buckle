@@ -38,7 +38,7 @@ p Set the syntax with an additional argument.
   = panel_footer do
     = code_tag :erb do
         | <%= code_tag :html do %>
-            # ...
+            <!-- ... -->
           <% end %>
 
 = callout_tag do
@@ -265,3 +265,83 @@ p Create responsive tables by including <code>:table-responsive</code> to make t
         <%= table_for @people, :responsive do |t|
           # ...
         end %>
+
+/ Forms ==============================================
+
+/ Buttons ==============================================
+
+.page-header
+  h1 Buttons
+
+h2 Options
+p Use any of the available button classes to quickly create a styled button.
+
+= panel_tag do
+  = panel_body do
+    => btn_tag 'Default'
+    => btn_tag :primary, 'Primary'
+    => btn_tag :success, 'Success'
+    => btn_tag :info, 'Info'
+    => btn_tag :warning, 'Warning'
+    => btn_tag :danger, 'Danger'
+    = btn_tag :link, 'Link'
+  = panel_footer do
+    = code_tag :erb
+      |
+        <%= btn_tag 'Default' %>
+        <%= btn_tag :primary, 'Primary' %>
+        <%= btn_tag :success, 'Success' %>
+        <%= btn_tag :info, 'Info' %>
+        <%= btn_tag :warning, 'Warning' %>
+        <%= btn_tag :danger, 'Danger' %>
+        <%= btn_tag :link, 'Link' %>
+
+h2 Sizes
+p Fancy larger or smaller buttons? Add <code>:lg</code>, <code>:sm</code>, or <code>:xs</code> for additional sizes.
+
+= panel_tag do
+  = panel_body do
+    p
+      => btn_tag :primary, :lg, 'Large button'
+      = btn_tag :lg, 'Large button'
+    p
+      => btn_tag :primary, 'Default button'
+      = btn_tag 'Default button'
+    p
+      => btn_tag :primary, :sm, 'Small button'
+      = btn_tag :sm, 'Small button'
+
+    => btn_tag :primary, :xs, 'Smallest button'
+    = btn_tag :xs, 'Smallest button'
+
+  = panel_footer do
+    = code_tag :erb do
+      |
+        <%= btn_tag :primary, :lg, 'Large button' %>
+        <%= btn_tag :lg, 'Large button' %>
+
+        <%= btn_tag :primary, 'Default button' %>
+        <%= btn_tag 'Default button' %>
+
+        <%= btn_tag :primary, :sm, 'Small button' %>
+        <%= btn_tag :sm, 'Small button' %>
+
+        <%= btn_tag :primary, :xs, 'Smallest button' %>
+        <%= btn_tag :xs, 'Smallest button' %>
+
+p Create block level buttons—those that span the full width of a parent— by adding <code>:block</code>.
+
+= panel_tag do
+  = panel_body do
+    p.well style='max-width:400px; margin: 10px auto'
+      => btn_tag :primary, :block, :lg, 'Block level button'
+      = btn_tag :block, :lg, 'Block level button'
+
+  = panel_footer do
+    = code_tag :erb do
+      |
+        <%= btn_tag :primary, :block, :lg, 'Block level button' %>
+        <%= btn_tag :block, :lg, 'Block level button' %>
+/ Images ==============================================
+
+/ Helpers ==============================================
