@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'coderay'
   s.add_dependency 'slim-rails'
 
-  s.add_development_dependency 'debugger'
+  s.add_development_dependency 'pry'
   s.add_development_dependency 'sass-rails', '~> 4.0.1'
   s.add_development_dependency 'sqlite3'
 end

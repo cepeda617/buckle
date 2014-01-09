@@ -7,7 +7,7 @@ module Buckle
     isolate_namespace Buckle
 
     config.to_prepare do
-      ApplicationController.send :helper, Buckle::Engine.helpers
+      ApplicationController.helper(Buckle::Engine.helpers)
     end
   end
 end
