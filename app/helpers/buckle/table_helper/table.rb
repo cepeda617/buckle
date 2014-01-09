@@ -1,7 +1,7 @@
 module Buckle
   module TableHelper
 
-    class Table < HtmlElement
+    class Table < Buckle::HtmlElement
 
       attr_reader :collection, :klass, :rows
 

@@ -52,3 +52,20 @@
 .callout-info h4 {
   color: #34789a;
 }
+
+/* Example panels */
+.panel-example {
+  padding-top: 30;
+  position: relative;
+}
+.panel-example:after {
+  content: "Example";
+  position: absolute;
+  top:  15px;
+  left: 15px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #bbb;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}

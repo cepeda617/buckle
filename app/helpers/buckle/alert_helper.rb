@@ -1,7 +1,8 @@
 module Buckle
   module AlertHelper
-    def close_button_tag
-      button_tag '&times;'.html_safe, class: 'close', data: { dismiss: 'alert' }
+    def close_button_tag( options = {} )
+      options.merge! class: 'close', data: { dismiss: 'alert' }, type: nil
+      button_tag '&times;'.html_safe, options
     end
 
     def flash_alerts

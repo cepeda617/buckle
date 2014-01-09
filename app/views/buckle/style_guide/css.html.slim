@@ -6,16 +6,16 @@
 h2 Blockquotes
 p Use <code>blockquote_tag</code> for quoting blocks of content from another source within your document.
 
-= panel_tag do
+= panel_tag class: 'panel-example' do
   = panel_body blockquote_tag('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.', cite: 'Someone famous in Source Title')
   = panel_footer code_tag("<%= blockquote_tag 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.', cite: 'Someone famous in Source Title' %\>", :erb)
 
 h4 Alternative display
 p Add <code>.pull-right</code> for a floated, right-aligned blockquote.
 
-= panel_tag do
+= panel_tag class: 'panel-example' do
   = panel_body blockquote_tag('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.', cite: 'Someone famous in Source Title', class: 'pull-right')
-  = panel_footer code_tag("\<%= blockquote_tag 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.', cite: 'Someone famous in Source Title' %\>", :erb)
+  = panel_footer code_tag("\<%= blockquote_tag 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.', cite: 'Someone famous in Source Title', class: 'pull-right' %\>", :erb)
 
 / Code ==============================================
 
@@ -25,11 +25,11 @@ p Add <code>.pull-right</code> for a floated, right-aligned blockquote.
 h2 Basic block
 p Use <code>code_tag</code> to wrap and highlight lines of code. Be sure to escape any angle brackets in the code for proper rendering.
 
-= panel_tag code_tag('<p>Sample text here...</p>'), footer: code_tag("\<%= code_tag '<p>Sample text here...</p>' %\>", :erb)
+= panel_tag code_tag('<p>Sample text here...</p>'), class: 'panel-example', footer: code_tag("\<%= code_tag '<p>Sample text here...</p>' %\>", :erb)
 
 p Set the syntax with an additional argument.
 
-= panel_tag do
+= panel_tag class: 'panel-example' do
   = panel_body do
     = code_tag :html do
       h2 Basic block
@@ -41,8 +41,10 @@ p Set the syntax with an additional argument.
             <!-- ... -->
           <% end %>
 
+          <%= code_tag '...', :html %>
+
 = callout_tag do
-  | The <code>code_tag</code> helper uses Coderay for syntax highlighting. Additional passable options are explained here:
+  ' The <code>code_tag</code> helper uses Coderay for syntax highlighting. Additional passable options are explained here:
   = link_to nil, 'http://coderay.rubychan.de/doc/CodeRay/Encoders/HTML.html'
 
 / Tables ==============================================
@@ -53,7 +55,7 @@ p Set the syntax with an additional argument.
 h2 Basic example
 p For basic styling—light padding and only horizontal divider, use the <code>table_for</code> helper.
 
-= panel_tag do
+= panel_tag class: 'panel-example' do
   = panel_body do
     = table_for @style_guide.people_for_table do |t|
       - t.header :id
@@ -93,7 +95,7 @@ p You can also use ActiveRecord objects directly to get the same result.
 h2 Striped rows
 p Use <code>table_tag :striped</code> to add zebra-striping to any table row within the <code>&lt;tbody&gt;</code>.
 
-= panel_tag do
+= panel_tag class: 'panel-example' do
   = panel_body do
 
     = table_for @style_guide.people_for_table, :striped do |t|
@@ -120,7 +122,7 @@ p Use <code>table_tag :striped</code> to add zebra-striping to any table row wit
 h2 Bordered table
 p Use <code>table_tag :bordered</code> for borders on all sides of the table and cells.
 
-= panel_tag do
+= panel_tag class: 'panel-example' do
   = panel_body do
 
     = table_for @style_guide.people_for_table, :bordered do |t|
@@ -147,7 +149,7 @@ p Use <code>table_tag :bordered</code> for borders on all sides of the table and
 h2 Hover rows
 p Use <code>table_tag :hover</code> to enable a hover state on table rows within a <code>&lt;tbody&gt;</code>.
 
-= panel_tag do
+= panel_tag class: 'panel-example' do
   = panel_body do
 
     = table_for @style_guide.people_for_table, :hover do |t|
@@ -174,7 +176,7 @@ p Use <code>table_tag :hover</code> to enable a hover state on table rows within
 h2 Condensed table
 p Use <code>table_tag :condensed</code> to make tables more compact by cutting cell padding in half.
 
-= panel_tag do
+= panel_tag class: 'panel-example' do
   = panel_body do
 
     = table_for @style_guide.people_for_table, :condensed do |t|
@@ -209,7 +211,7 @@ p Use contextual classes to color table rows or individual cells.
     - row.context "<code>:#{ context[0] }</code>"
     - row.description context[1]
 
-= panel_tag do
+= panel_tag class: 'panel-example' do
   = panel_body do
 
     = table_for @style_guide.people_for_table do |t|
@@ -242,7 +244,7 @@ p Use contextual classes to color table rows or individual cells.
 h2 Responsive tables
 p Create responsive tables by including <code>:table-responsive</code> to make them scroll horizontally up to small devices (under 768px). When viewing on anything larger than 768px wide, you will not see any difference in these tables.
 
-= panel_tag do
+= panel_tag class: 'panel-example' do
   = panel_body do
 
     = table_for @style_guide.people_for_table, :responsive do |t|
@@ -276,7 +278,7 @@ p Create responsive tables by including <code>:table-responsive</code> to make t
 h2 Options
 p Use any of the available button classes to quickly create a styled button.
 
-= panel_tag do
+= panel_tag class: 'panel-example' do
   = panel_body do
     => btn_tag 'Default'
     => btn_tag :primary, 'Primary'
@@ -299,7 +301,7 @@ p Use any of the available button classes to quickly create a styled button.
 h2 Sizes
 p Fancy larger or smaller buttons? Add <code>:lg</code>, <code>:sm</code>, or <code>:xs</code> for additional sizes.
 
-= panel_tag do
+= panel_tag class: 'panel-example' do
   = panel_body do
     p
       => btn_tag :primary, :lg, 'Large button'
@@ -331,7 +333,7 @@ p Fancy larger or smaller buttons? Add <code>:lg</code>, <code>:sm</code>, or <c
 
 p Create block level buttons—those that span the full width of a parent— by adding <code>:block</code>.
 
-= panel_tag do
+= panel_tag class: 'panel-example' do
   = panel_body do
     p.well style='max-width:400px; margin: 10px auto'
       => btn_tag :primary, :block, :lg, 'Block level button'
@@ -342,6 +344,18 @@ p Create block level buttons—those that span the full width of a parent— by 
       |
         <%= btn_tag :primary, :block, :lg, 'Block level button' %>
         <%= btn_tag :block, :lg, 'Block level button' %>
+
 / Images ==============================================
 
 / Helpers ==============================================
+.page-header
+  h1 Helper classes
+
+h2 Close icon
+p Use the generic close icon for dismissing content like modals and alerts.
+= panel_tag class: 'panel-example' do
+  = panel_body do
+    = close_button_tag style: 'float:none'
+  = panel_footer
+    = code_tag :erb do
+      | <%= close_button_tag %>

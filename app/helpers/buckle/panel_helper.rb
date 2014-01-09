@@ -1,12 +1,18 @@
 module Buckle
   module PanelHelper
 
-    def panel_tag( content = nil, options = {}, &block )
+    def panel_tag( content_or_options = nil, options = {}, &block )
+      options = content_or_options if block_given? && content_or_options.is_a?(Hash)
+      options ||= {}
+
       type = options.fetch(:type, :default).to_s
-      content_tag :div, class: "panel panel-#{ type }" do
-        concat panel_heading(options[:header]) if options.key? :header
-        concat block_given? ? capture(&block) : panel_body(content)
-        concat panel_footer(options[:footer]) if options.key? :footer
+      header, footer = options.delete(:header), options.delete(:footer)
+      options[:class] = [options[:class], 'panel', "panel-#{ type }"].compact.join(' ')
+
+      content_tag :div, options do
+        concat panel_heading(header) if header
+        concat block_given? ? capture(&block) : panel_body(content_or_options)
+        concat panel_footer(footer) if footer
       end
     end
 
