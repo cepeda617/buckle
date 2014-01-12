@@ -6,8 +6,10 @@ module Buckle
   class Engine < ::Rails::Engine
     isolate_namespace Buckle
 
-    config.to_prepare do
-      ApplicationController.helper(Buckle::Engine.helpers)
+    initializer 'buckle.action_controller' do |app|
+      ActiveSupport.on_load :action_controller do
+        helper Buckle::Engine.helpers
+      end
     end
   end
 end
